@@ -18,8 +18,10 @@ Windows, and macOS products. It contains no product features yet.
 
 ## CI
 
-GitHub Actions runs [`scripts/check-starter.sh`](./scripts/check-starter.sh)
-on pushes to `main` and on every pull request. It checks that:
+GitHub Actions (`.github/workflows/ci.yml`) runs on pushes to `main` and on every
+pull request. It calls the shared `security.yml` from `bookchaowalit/platform-ci-workflows`
+(Gitleaks, Semgrep, OSV-Scanner, Trivy) and runs
+[`scripts/check-starter.sh`](./scripts/check-starter.sh), which checks that:
 
 - the baseline files exist (`README.md`, MIT `LICENSE`, `.gitignore`,
   `.editorconfig`, `docs/UPGRADE-PLAN.md`, CI workflow);
